@@ -1,0 +1,137 @@
+.header-container{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    position: relative;
+    height: 63px;
+    background-color: rgb(19, 25, 33);
+}
+.logo-amazon{
+    width: 110px;
+    height: 50%;
+    margin: 0px 5px;
+    background: url("../Assests/icons/amazon-logo-white.png") no-repeat;
+    background-size: 100% 100%;
+}
+.user-info{
+    height: 100%;
+    cursor: pointer;
+    font-size: .9rem;
+    color: white;
+    display: flex;
+    padding: 0px 5px;
+    align-items:center;
+}
+.user-info img{ 
+    margin: 0px 5px;
+}
+.user-info:hover{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.remaining-data{
+    flex: 1;
+    display: flex;
+    height: 100%;
+    font-size: .9rem;
+    color: white;
+    align-items: center;
+    justify-content: flex-end;
+}
+.accountlist{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0px 5px;
+    user-select: none;
+    cursor: pointer;
+    padding: 3px;
+}
+.accountlist:hover{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.account-list-displaynone{
+    display: none;
+}
+.account-list-display{
+    position: absolute;
+    top: 60px;
+    right: 79px;
+    width: 350px;
+    height: 500px;
+    z-index: 999;
+    background-color: pink;
+}
+.cart{
+    width: 70px;
+    height: 100%;
+    background: url("../Assests/icons/mod\ cart.png") no-repeat;
+    background-size: 100% 100%;
+}
+.cart:hover{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.sell-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+}
+.sell-product:hover{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+
+@media screen and (max-width:700px) {
+    .logo-amazon{
+        width: 70px;
+        height: 20px;
+    }
+    .user-info{
+    font-size: .7rem;
+    }
+    .accountlist{
+        font-size: .7rem;
+    }
+    .cart{
+        width: 60px;
+        height: 100%;
+        background: url("../Assests/icons/cart-logo.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    .account-list-display{
+        top: 63px;
+        right: 50px;
+        width: 250px;
+        height: 400px;
+        z-index: 999;
+        background-color: pink;
+    }
+    .sell-product{
+        font-size: .7rem;
+        width: 60px;
+        height: 100%;
+    }
+}
+@media screen and (max-width:400px) {
+    .logo-amazon{
+        width: 50px;
+        height: 20px;
+    }
+    .user-info{
+    font-size: .6rem;
+    }
+    .user-info{
+        display: none;
+    }
+    .cart{
+        width: 35px;
+        height: 60%;
+        background: url("../Assests/icons/cart-logo.png") no-repeat;
+        background-size: 100% 100%;
+    }
+}

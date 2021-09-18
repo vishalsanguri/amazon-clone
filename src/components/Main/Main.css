@@ -1,0 +1,110 @@
+.product-details-container{
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-color: white;
+    z-index: 99;
+}
+.main-container{
+    position: relative;
+}
+.abc{
+    position: absolute;
+    width: 100%;
+    top: 294px;
+    color: white;
+    left: 0;
+    padding: 0px 10px;
+}
+.dummy-data{
+    display: flex;
+    justify-content: space-evenly;
+}
+.dummy-data-container1{
+    width: 280px ;
+    height: 350px;
+    background: url("../Assests/Images/dummy1.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.dummy-data-container2{
+    width: 280px ;
+    height: 350px;
+    background: url("../Assests/Images/dummy2.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.dummy-data-container3{
+    width: 280px ;
+    height: 350px;
+    background: url("../Assests/Images/dummy3.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.real-data{
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x:scroll;
+    background-color: white;
+}
+.item-container{
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+}
+.image-of-item{
+    padding:0px 5px;
+    width: 200px;
+    height: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:800px) {
+    .abc{
+        top: 175px;
+    }
+}
+@media screen and (max-width:600px) {
+    .dummy-data-container3{
+        display: none;
+        width: 200px ;
+        height: 270px;
+        background: url("../Assests/Images/dummy3.PNG") no-repeat;
+        background-size: 100% 100%;
+    }
+    .item-container{
+        width: 200px;
+        height: 140px;
+    }
+    .image-of-item{
+        width: 150px;
+        height: 100%;
+    }
+}
+@media screen and (max-width:500px) {
+    .abc{
+        top: 95px;
+    }
+    .dummy-data-container1{
+        width: 200px ;
+        height: 250px;
+        background: url("../Assests/Images/dummy3.PNG") no-repeat;
+        background-size: 100% 100%;
+    }
+    .dummy-data-container2{
+        width: 200px ;
+        height: 250px;
+        background: url("../Assests/Images/dummy3.PNG") no-repeat;
+        background-size: 100% 100%;
+    }
+}

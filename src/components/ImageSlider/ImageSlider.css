@@ -1,0 +1,125 @@
+.holder-images{
+    --width: 100vw;
+    height: 700px;
+    overflow: hidden;
+}
+.scroll{
+    width: calc(var(--width)*6);
+    animation: animation1 100s  infinite ease-in-out;
+    height: 100%;
+}
+.child1{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background:linear-gradient(to bottom, rgba(255,153,153,0) 50%,rgba(250, 250, 250, 1) 100%), url("../Assests/Images/back2.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.child2{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background:linear-gradient(to bottom, rgba(255,153,153,0) 50%,rgba(250, 250, 250, 1) 100%) ,url("../Assests/Images/back1.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.child3{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background:linear-gradient(to bottom, rgba(255,153,153,0) 50%,rgba(250, 250, 250, 1) 100%) ,url("../Assests/Images/back3.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.child4{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,153,153,0) 50%,rgba(250, 250, 250, 1) 100%),url("../Assests/Images/back4.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.child5{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255,153,153,0) 0%,rgba(255,153,153,0) 50%,rgba(250, 250, 250, 1) 100%),url("../Assests/Images/back5.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+.child6{
+    width: var(--width) ;
+    display: inline-block;
+    height: 100%;
+    background:linear-gradient(to bottom, rgba(255,153,153,0) 0%,rgba(0, 0, 0, 0.7) 50%,rgba(184, 184, 184,1) 100%),url("../Assests/Images/back6.PNG") no-repeat;
+    background-size: 100% 100%;
+}
+
+@keyframes animation1 {
+    0%{
+        transform: translateX(0);
+    }
+    9%{
+        transform: translateX(0);
+    }
+    10%{
+        transform: translateX(-100vw);
+    }
+    19%{
+        transform: translateX(-100vw);
+    }
+    20%{
+        transform: translateX(-200vw);
+    }
+    29%{
+        transform: translateX(-200vw);
+    }
+    30%{
+        transform: translateX(-300vw);
+    }
+    39%{
+        transform: translateX(-300vw);
+    }
+    40%{
+        transform: translateX(-400vw);
+    }
+    49%{
+        transform: translateX(-400vw);
+    }
+    50%{
+        transform: translateX(-500vw);
+    }
+    59%{
+        transform: translateX(-500vw);
+    }
+    60%{
+        transform: translateX(-400vw);
+    }
+    69%{
+        transform: translateX(-400vw);
+    }
+    70%{
+        transform: translateX(-300vw);
+    }
+    79%{
+        transform: translateX(-300vw);
+    }
+    80%{
+        transform: translateX(-200vw);
+    }
+    89%{
+        transform: translateX(-200vw);
+    }
+    90%{
+        transform: translateX(-100vw);
+    }
+    99%{
+        transform: translateX(-100vw);
+    }
+}
+@media screen and (max-width:800px) {
+    .holder-images{
+        height: 400px;
+    }
+}
+@media screen and (max-width:500px) {
+    .holder-images{
+        height: 200px;
+    }
+}

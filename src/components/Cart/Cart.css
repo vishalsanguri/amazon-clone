@@ -1,0 +1,155 @@
+.main-cart{
+    display: flex;
+    background-color: white;
+}
+.cart-container{
+    padding: 10px;
+    width: 65%;
+}
+.heading-div-cart{
+    font-size: 2rem;
+}
+.go-to-add{
+    text-align: center;
+    margin: 20px auto;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(243,168,71);
+}
+.cart-item-container{
+    margin: 10px;
+    display: flex;
+    width: 100%;
+}
+.go-to-add:hover{
+    border: 1px solid black;
+}
+.cart-total{
+    width: 35%;
+    position: relative;
+    padding: 5px 5px 5px 0px;
+}
+.item-image-cart{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item-desc-cart{
+    width: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+}
+.hr-line{
+    height: 1px;
+    width:100%;
+    background-color: rgb(117, 117, 117);
+}
+.delete-item-button{
+    position: absolute;
+    background-color: rgb(243,168,71);
+    padding: 7px;
+    border-radius: 10px;
+    user-select: none;
+    cursor: pointer;
+    bottom: 10px;
+    right: 10px;
+}
+.item-head-cart{
+    font-size: 1.2rem;
+}
+
+.secure-img{
+    width: 70%;
+    margin: auto;
+    height: 50px;
+}
+.subtotal-cart{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+.emi-container{
+    width: 100%;
+    margin: 20px 0px;
+    padding: 5px 5px ;
+    border: 1px solid black;
+}
+.vertical-cart-line{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
+.emi-text-hide{
+    display: none;
+}
+.emi-text-disp{
+    display: block;
+}
+.proceed-to-buy{
+    margin: 10px auto ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 45px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 10px ;
+    background-color: rgb(243,168,71);
+}
+@media screen and (max-width:800px) {
+    .heading-div-cart{
+        font-size: 1.5rem;
+    }
+    .cart-item-container{
+        display: block;
+        font-size: 1rem;
+    }
+    .item-image-cart{
+        margin: auto;
+    }
+    .item-desc-cart{
+        width: 100%;
+    }
+    .item-image-cart{
+        width: 80%;
+    }
+    .item-head-cart{
+        font-size: 1rem;
+    }
+    .subtotal-cart{
+        font-size: .8rem;
+    }
+}
+@media screen and (max-width:500px) {
+    .cart-item-container{
+        font-size: .8rem;
+    }
+    .secure-img{
+        width: 100%;
+        height: 25px;
+    }
+    .item-head-cart{
+        font-size: .7rem;
+    }
+    .proceed-to-buy{
+        width: 100%;
+    }
+    .subtotal-cart{
+        font-size: .6rem;
+    }
+    .proceed-to-buy{
+        height:30px ;
+    }
+}
