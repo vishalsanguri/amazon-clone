@@ -24,7 +24,7 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
     }, 0);
     const time1 = setTimeout(() => {
       setSuccess(false);
-    }, 1000);
+    }, 500);
   }
 
   return (
@@ -60,23 +60,24 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
         </div>
         <div style={{ color: "black" }}>
           M.R.P. Rs -{" "}
-          <span style={{ textDecoration: "line-through", color: "red" }}>
-            {currentitem.price - currentitem.price / 6}
+          <span style={{ textDecoration: "line-through", color: "blue" }}>
+            {Number(currentitem.price) + Number(currentitem.price / 6)}
           </span>
         </div>
         <div style={{ margin: "10px 0px" }}>
-          PRICE. RS - {currentitem.price}
+          PRICE. -{" "}
+          {Number(currentitem.price).toLocaleString("en-IN", {
+            maximumFractionDigits: 2,
+            style: "currency",
+            currency: "INR",
+          })}
         </div>
         <hr />
         <div>
           <span style={{ color: "rgb(243,168,71)" }}>About This Item</span>
           <br />
           <br />
-          <div style={{ width: "70%" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aut
-            inventore rem natus soluta libero, tempora voluptatibus, ad
-            similique nihil quo enim eos architecto.
-          </div>
+          <div style={{ width: "70%" }}>{currentitem.name}</div>
         </div>
 
         <div className="buy-item">buy now</div>

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import Cart from "./components/Cart/Cart";
-// import useCart from "./components/hooks/useCart";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./components/Login/Login";
 
 export const cartContext = React.createContext();
 
@@ -13,16 +13,23 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
         <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
           <cartContext.Provider value={{ cart, setCart }}>
-            <Route exact path="/">
+            <Route exact path="/main">
+              <Header />
               <Main />
             </Route>
             <Route exact path="/cart">
+              <Header />
               <Cart cart={cart} setCart={setCart} />
             </Route>
           </cartContext.Provider>
+          {/* <Route exact path="/login">
+            <Login />
+          </Route> */}
         </Switch>
       </Router>
     </>

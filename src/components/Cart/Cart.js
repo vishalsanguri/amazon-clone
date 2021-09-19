@@ -9,7 +9,7 @@ export default function Cart() {
   const history = useHistory();
   const { cart, setCart } = useContext(cartContext);
   function redirectToMain() {
-    history.push("/");
+    history.push("/main");
   }
   function deleteitem(index) {
     console.log("h");
@@ -70,7 +70,13 @@ export default function Cart() {
                       )}
                       <div style={{ paddingBottom: "35px" }}>
                         price :{" "}
-                        <span style={{ color: "green" }}>{item.price}</span>
+                        <span style={{ color: "green" }}>
+                          {Number(item.price).toLocaleString("en-IN", {
+                            maximumFractionDigits: 2,
+                            style: "currency",
+                            currency: "INR",
+                          })}
+                        </span>
                       </div>
                       <div
                         className="delete-item-button"
@@ -95,7 +101,11 @@ export default function Cart() {
         </div>
         <div className="subtotal-cart">
           Subtotal ({cart.length} {cart.length > 1 ? "items" : "item"}): RS{" "}
-          {total}
+          {Number(total).toLocaleString("en-IN", {
+            maximumFractionDigits: 2,
+            style: "currency",
+            currency: "INR",
+          })}
           {cart.length !== 0 ? (
             <div className="proceed-to-buy">Proceed to buy</div>
           ) : null}

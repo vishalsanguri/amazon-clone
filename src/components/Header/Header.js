@@ -16,7 +16,7 @@ export default function Header({ name, location }) {
     history.push("/cart");
   }
   function redirecttomain() {
-    history.push("/");
+    history.push("/main");
   }
   return (
     <>
