@@ -9,7 +9,10 @@ export default function Cart() {
   const history = useHistory();
   const { cart, setCart } = useContext(cartContext);
   function redirectToMain() {
-    history.push("/main");
+    history.push("/");
+  }
+  function gotobuy() {
+    history.push("/buy");
   }
   function deleteitem(index) {
     console.log("h");
@@ -107,7 +110,9 @@ export default function Cart() {
             currency: "INR",
           })}
           {cart.length !== 0 ? (
-            <div className="proceed-to-buy">Proceed to buy</div>
+            <div className="proceed-to-buy" onClick={gotobuy}>
+              Proceed to buy
+            </div>
           ) : null}
           <div className="emi-container">
             {total < 1000 ? (

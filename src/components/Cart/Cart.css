@@ -131,6 +131,10 @@
     .subtotal-cart{
         font-size: .8rem;
     }
+    .secure-img{
+        width: 100%;
+        height: 40px;
+    }
 }
 @media screen and (max-width:500px) {
     .cart-item-container{

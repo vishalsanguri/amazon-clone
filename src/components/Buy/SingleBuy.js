@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Buy.css";
-import { useHistory } from "react-router";
-
-export default function Buy({ cart, userInfo }) {
-  const history = useHistory();
-  var total = 0;
+import { currentContext } from "../../App";
+export default function Buy({ userInfo }) {
+  const { currentitem } = useContext(currentContext);
   return (
     <div className="buy-page">
       <div className="buy-container">
@@ -14,28 +12,23 @@ export default function Buy({ cart, userInfo }) {
           <span> Your items </span> <hr />
           <div>
             <ul>
-              {cart.map((item) => {
-                total += Number(item.price);
-                return (
-                  <li style={{ listStyle: "none" }}>
-                    {item.name}{" "}
-                    <div style={{ color: "green" }}>
-                      {Number(item.price).toLocaleString("en-IN", {
-                        maximumFractionDigits: 2,
-                        style: "currency",
-                        currency: "INR",
-                      })}
-                    </div>
-                  </li>
-                );
-              })}
+              <li style={{ listStyle: "none" }}>
+                {currentitem.name}{" "}
+                <div style={{ color: "green" }}>
+                  {Number(currentitem.price).toLocaleString("en-IN", {
+                    maximumFractionDigits: 2,
+                    style: "currency",
+                    currency: "INR",
+                  })}
+                </div>
+              </li>
             </ul>
           </div>
         </div>
         <div className="magic">To be delivered at : {userInfo.location}</div>
         <span className="magic">
           Total :{" "}
-          {total.toLocaleString("en-IN", {
+          {Number(currentitem.price).toLocaleString("en-IN", {
             maximumFractionDigits: 2,
             style: "currency",
             currency: "INR",

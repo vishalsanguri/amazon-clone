@@ -75,8 +75,35 @@
     height: 250px;
     margin: auto;
 }
+.real-data-men{
+    margin: 10px 0px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    overflow-x:scroll;
+    background-color: white;
+}
+.men-heading{
+    flex: 1;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(to right,rgb(4, 107, 93),rgb(0, 255, 200) );
 
-
+}
+.men-dummy{
+    width:30%;
+    cursor: pointer;
+    user-select: none;
+    color: black;
+    background: url("../Assests/Images/men-dummy.PNG") no-repeat;
+    background-size: 100% 100%;
+}
 
 
 
@@ -91,6 +118,9 @@
     }
     .dummy-data-container4{
         display: none;
+    }
+    .men-dummy{
+        width: 50%;
     }
 }
 @media screen and (max-width:600px) {
@@ -125,5 +155,14 @@
         height: 220px;
         background: url("../Assests/Images/dummy3.PNG") no-repeat;
         background-size: 100% 100%;
+    }
+    .men-heading{
+        font-size: 1rem;
+    }
+    .real-data-men{
+        height: 200px;
+    }
+    .men-dummy{
+        width: 60%;
     }
 }

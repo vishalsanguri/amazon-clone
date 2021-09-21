@@ -1,0 +1,25 @@
+.footer-container{
+    background-color: rgb(19, 25, 33);
+    text-align: center;
+    padding:10px;
+}
+.sections{
+    display: flex;
+}
+.section-content{
+    width: 30%;
+    row-gap: 10px;
+    font-size: .9rem;
+    padding: 10px 0px;
+    user-select: none;
+    cursor: pointer;
+    background-color: rgb(31, 42, 56);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width:800px) {
+    .section-content{
+        font-size: .8rem;
+    }
+}

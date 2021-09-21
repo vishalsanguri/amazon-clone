@@ -10,8 +10,10 @@
     justify-content: flex-start;
     align-items: center;
     background-color: white;
-}.detail-container{
-    width: 50%;
+}
+.detail-container{
+    width: 40%;
+    position: relative;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -36,4 +38,22 @@
     font-size: .9rem;
     width: 100%;
     height: 30px;
+}
+.register{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    cursor: pointer;
+    align-items: center;
+    background-color: rgb(156, 156, 156);
+}
+.register:hover{
+    background-color: rgb(148, 138, 138);
+}
+@media screen and (max-width:800px) {
+    .detail-container{
+        width: 100%;
+    }
 }

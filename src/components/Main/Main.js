@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Main.css";
+import { useHistory } from "react-router-dom";
 import SpecificItem from "../SpecificItem/SpecificItem";
 import ImageSlider from "../ImageSlider/ImageSlider";
 import Suspense from "../Suspense/Suspense";
+import Footer from "../Footer/Footer";
+import { currentContext } from "../../App";
 
 export default function Main() {
+  const { currentitem, setCurrentitem } = useContext(currentContext);
+  const history = useHistory();
   const [data, setData] = useState([]);
   const [headphones, setHeadphones] = useState([]);
-  const [currentitem, setCurrentitem] = useState({
-    desc: "",
-    id: "",
-    imgUrl: "",
-    name: "",
-    price: "",
-    stars: "",
-  });
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   function showContentItem(item) {
     setCurrentitem({ ...currentitem, ...item });
+  }
+  function menSectionRedirect() {
+    history.push("/mensection");
   }
   useEffect(async () => {
     await fetch("http://localhost:5000/data")
@@ -93,6 +99,13 @@ export default function Main() {
               <Suspense />
             )}
           </div>
+          <div className="real-data-men">
+            <div className="men-heading">
+              Up to 70% off | Bestselling Men's Clothing
+            </div>
+            <div className="men-dummy" onClick={menSectionRedirect}></div>
+          </div>
+          <Footer scroll={scrollToTop} />
         </div>
       </div>
     </>

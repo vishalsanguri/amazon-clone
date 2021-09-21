@@ -1,0 +1,51 @@
+.buy-page{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to bottom, rgb(160, 163, 0),rgb(250, 250, 250)) ;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+
+}
+.buy-container{
+    width: 60%;
+    border: 1px solid rgb(117, 117, 117);
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    row-gap: 10px;
+    /* background-color: red; */
+}
+.magic{
+    padding:10px  ;
+    border-radius: 5px;
+    background-color: rgb(192, 192, 192);
+}
+.buy-container1{
+    width: 60%;
+    padding: 10px;
+    border: 1px solid rgb(117, 117, 117);
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.input-data{
+    height: 30px;
+    padding:5px ;
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 5px;
+}
+.pay-amount{
+    width: 20%;
+    padding: 10px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}

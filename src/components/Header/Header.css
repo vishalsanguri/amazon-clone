@@ -20,6 +20,7 @@
     color: white;
     display: flex;
     padding: 0px 5px;
+    border: 1px solid transparent;
     align-items:center;
 }
 .user-info img{ 
@@ -45,6 +46,7 @@
     margin: 0px 5px;
     user-select: none;
     cursor: pointer;
+    border: 1px solid transparent;
     padding: 3px;
 }
 .accountlist:hover{
@@ -57,17 +59,22 @@
 .account-list-display{
     position: absolute;
     top: 60px;
+    padding: 10px;
     right: 79px;
     width: 350px;
-    height: 500px;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    align-items: center;
     z-index: 999;
-    background-color: pink;
+    background-color: white;
 }
 .cart{
     width: 70px;
     height: 100%;
     background: url("../Assests/icons/mod\ cart.png") no-repeat;
     background-size: 100% 100%;
+    border: 1px solid rgb(19, 25, 33);
 }
 .cart:hover{
     border: 1px solid white;
@@ -84,7 +91,23 @@
     border: 1px solid white;
     border-radius: 5px;
 }
-
+.hover-text{
+    color: rgb(109, 109, 109);
+    user-select: none;
+}
+.hover-text:hover{
+    color: rgb(167, 156, 14);
+    text-decoration: underline;
+}
+.logout-btn{
+    width: 20%;
+    border-radius: 5px;
+    pad: 7px 10px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    background-color: red;
+}
 
 @media screen and (max-width:700px) {
     .logo-amazon{

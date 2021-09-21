@@ -2,27 +2,29 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Amazonimg from "../Assests/icons/amazon-logo.png";
 import "./Login.css";
+import Spinner from "../spinner/Spinner";
 
-export default function Login() {
+export default function Login({ confirm, setConfirm, userInfo, setUserInfo }) {
   const history = useHistory();
-  const [status, setstatus] = useState({ status: "" });
+  const [spinner, setSpinner] = useState(false);
   const [details, setDetails] = useState({
     email: "",
     password: "",
-    name: "",
-    location: "",
   });
   function setData(e) {
     var name = e.target.name;
     var value = e.target.value;
     setDetails({ ...details, [name]: value });
   }
+  function signUpRedirect() {
+    history.push("/register");
+  }
 
   async function verifyUser() {
-    var body = JSON.stringify({
-      email: `${details.email}`,
-      password: `${details.password}`,
-    });
+    if (details.email == "" || details.password === "") {
+      window.alert("Plz fill details");
+      return null;
+    } else setSpinner(true);
     await fetch("http://localhost:5000/login", {
       method: "POST",
       headers: {
@@ -33,66 +35,70 @@ export default function Login() {
         email: details.email,
         password: details.password,
       }),
-    }).then((res) => setstatus({ ...status, status: res.status }));
+    })
+      .then((res) => {
+        if (res.ok === true) {
+          return res.json();
+        } else {
+          console.log("hi");
+          return [false];
+        }
+      })
+      .then(([data]) => {
+        console.log(data);
+        if (data === false) {
+          setSpinner(false);
+          window.alert("incorrect credentials");
+          return data;
+        } else {
+          setSpinner(false);
+          setUserInfo({
+            ...userInfo,
+            ...{ name: data.name, location: data.location },
+          });
+          setConfirm({ ...confirm, ok: true });
+          return data;
+        }
+      });
   }
-  if (status.status === 400) {
-    window.alert("User don't exist");
-  } else if (status.status === 200) {
-    history.push("/");
-  } else
-    return (
-      <div className="login-container">
-        <img src={Amazonimg} alt="logo" />
-        <div className="detail-container">
-          <span style={{ fontSize: "1.3rem" }}>Sign-In</span>
-          <div>
-            <label>Email</label>
-            <br />
-            <input
-              type="email"
-              name="email"
-              className="email-box"
-              onChange={(e) => setData(e)}
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <br />
-            <input
-              type="password"
-              name="password"
-              className="email-box"
-              onChange={(e) => setData(e)}
-            />
-          </div>
-          <div>
-            <label>Name</label>
-            <br />
-            <input
-              type="text"
-              name="name"
-              className="email-box"
-              onChange={(e) => setData(e)}
-            />
-          </div>
-          <div>
-            <label>Your Location</label>
-            <br />
-            <input
-              type="text"
-              name="location"
-              className="email-box"
-              onChange={(e) => setData(e)}
-            />
-          </div>
-          <div className="continue-btn" onClick={verifyUser}>
-            Continue
-          </div>
-          <span style={{ fontSize: ".9rem" }}>
-            By continuing, you agree to Amazon's Conditions of Use and Privacy
-            Notice.
-          </span>
+  return (
+    <div className="login-container">
+      <img src={Amazonimg} alt="logo" />
+      <div className="detail-container">
+        <span style={{ fontSize: "1.3rem" }}>Sign-In</span>
+        <div>
+          <label>Email</label>
+          <br />
+          <input
+            type="email"
+            name="email"
+            className="email-box"
+            onChange={(e) => setData(e)}
+          />
         </div>
+        <div>
+          <label>Password</label>
+          <br />
+          <input
+            type="password"
+            name="password"
+            className="email-box"
+            onChange={(e) => setData(e)}
+          />
+        </div>
+        <div className="continue-btn" onClick={verifyUser}>
+          Continue
+        </div>
+        <span style={{ fontSize: ".9rem" }}>
+          By continuing, you agree to Amazon's Conditions of Use and Privacy
+          Notice.
+        </span>
+        <div style={{ textAlign: "center" }}>New to Amazon ?</div>
+        <div className="register" onClick={signUpRedirect}>
+          Create Account
+        </div>
+        {spinner ? <Spinner /> : null}
       </div>
-    );
+    </div>
+  );
 }

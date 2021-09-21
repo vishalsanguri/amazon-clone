@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Specific.css";
+import { useHistory } from "react-router-dom";
 import Star from "../Assests/icons/star.png";
 import { cartContext } from "../../App";
 export default function SpecificItem({ currentitem, setCurrentitem }) {
+  const history = useHistory();
   const { cart, setCart } = useContext(cartContext);
   const [Success, setSuccess] = useState(false);
   const reset = {
@@ -25,6 +27,9 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
     const time1 = setTimeout(() => {
       setSuccess(false);
     }, 500);
+  }
+  function buyItem() {
+    history.push("/buyitem");
   }
 
   return (
@@ -59,9 +64,13 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
           </div>
         </div>
         <div style={{ color: "black" }}>
-          M.R.P. Rs -{" "}
+          M.R.P. -{" "}
           <span style={{ textDecoration: "line-through", color: "blue" }}>
-            {Number(currentitem.price) + Number(currentitem.price / 6)}
+            {Number(currentitem.price * 1.2).toLocaleString("en-IN", {
+              maximumFractionDigits: 2,
+              style: "currency",
+              currency: "INR",
+            })}
           </span>
         </div>
         <div style={{ margin: "10px 0px" }}>
@@ -80,7 +89,9 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
           <div style={{ width: "70%" }}>{currentitem.name}</div>
         </div>
 
-        <div className="buy-item">buy now</div>
+        <div className="buy-item" onClick={buyItem}>
+          buy now
+        </div>
         <div className="addtocart-btn" onClick={addToCart}>
           Add to Cart
         </div>
