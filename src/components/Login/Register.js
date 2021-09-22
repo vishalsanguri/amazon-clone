@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Formik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import Amazonimg from "../Assests/icons/amazon-logo.png";
 import "./Login.css";
@@ -28,7 +27,7 @@ export default function Register() {
     ) {
       window.alert("plz fill all the fields");
     }
-    await fetch("http://localhost:5000/register", {
+    await fetch("https://amazon-backend-server.herokuapp.com/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

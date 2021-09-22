@@ -2,24 +2,35 @@ import React, { useState, useContext, useEffect } from "react";
 import ImageMen from "../Assests/Images/mentop.PNG";
 import "./MenClothing.css";
 import { cartContext } from "../../App";
+import { currentContext } from "../../App";
+import { useHistory } from "react-router-dom";
 
 export default function MenClothing() {
+  const history = useHistory();
+  const { currentitem, setCurrentitem } = useContext(currentContext);
   const { cart, setCart } = useContext(cartContext);
   const [Success, setSuccess] = useState(false);
   const [menCloths, setMenCloths] = useState([]);
-  useEffect(async () => {
-    await fetch("http://localhost:5000/data2")
-      .then((req) => req.json())
-      .then((data) => {
-        setMenCloths(data);
-      });
+  useEffect(() => {
+    async function fetchdata() {
+      await fetch("https://amazon-backend-server.herokuapp.com/data2")
+        .then((req) => req.json())
+        .then((data) => {
+          setMenCloths(data);
+        });
+    }
+    fetchdata();
   }, []);
+  function buyMen(item) {
+    setCurrentitem({ ...currentitem, ...item });
+    history.push("/buyitem");
+  }
   function addToCart(item) {
     setCart([...cart, item]);
-    const time = setTimeout(() => {
+    setTimeout(() => {
       setSuccess(true);
     }, 0);
-    const time1 = setTimeout(() => {
+    setTimeout(() => {
       setSuccess(false);
     }, 500);
   }
@@ -55,7 +66,14 @@ export default function MenClothing() {
                 Add to cart
               </div>
               <br />
-              <div className="men-cart-btn">Buy</div>
+              <div
+                className="men-cart-btn"
+                onClick={() => {
+                  buyMen(item);
+                }}
+              >
+                Buy
+              </div>
             </div>
           </div>
         );

@@ -21,10 +21,10 @@ export default function SpecificItem({ currentitem, setCurrentitem }) {
   }, [currentitem.stars]);
   function addToCart() {
     setCart([...cart, currentitem]);
-    const time = setTimeout(() => {
+    setTimeout(() => {
       setSuccess(true);
     }, 0);
-    const time1 = setTimeout(() => {
+    setTimeout(() => {
       setSuccess(false);
     }, 500);
   }

@@ -22,7 +22,7 @@ function App() {
     <>
       <Router>
         <Switch>
-          {confirm.ok == false ? (
+          {confirm.ok === false ? (
             <>
               <Route exact path="/">
                 <Login

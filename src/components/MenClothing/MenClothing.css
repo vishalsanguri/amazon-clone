@@ -51,7 +51,7 @@
 }
 @media screen and (max-width:800px) {
     .item-image-men{
-        width: 30%;
+        width: 40%;
     } 
     .item-desc-men{
         font-size: 1rem;
@@ -67,6 +67,9 @@
     }
     .item-desc-men{
         font-size: .8rem;
+    }
+    .item-image-men{
+        width: 50%;
     }
     .men-cart-btn{
         width: 70px;

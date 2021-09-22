@@ -1,9 +1,7 @@
 import React from "react";
 import "./Buy.css";
-import { useHistory } from "react-router";
 
 export default function Buy({ cart, userInfo }) {
-  const history = useHistory();
   var total = 0;
   return (
     <div className="buy-page">

@@ -24,19 +24,25 @@ export default function Main() {
   function menSectionRedirect() {
     history.push("/mensection");
   }
-  useEffect(async () => {
-    await fetch("http://localhost:5000/data")
-      .then((req) => req.json())
-      .then((data) => {
-        setData(data);
-      });
+  useEffect(() => {
+    async function fetchdata() {
+      await fetch("https://amazon-backend-server.herokuapp.com/data")
+        .then((req) => req.json())
+        .then((data) => {
+          setData(data);
+        });
+    }
+    fetchdata();
   }, []);
-  useEffect(async () => {
-    await fetch("http://localhost:5000/data1")
-      .then((req) => req.json())
-      .then((data) => {
-        setHeadphones(data);
-      });
+  useEffect(() => {
+    async function fetchdata() {
+      await fetch("https://amazon-backend-server.herokuapp.com/data1")
+        .then((req) => req.json())
+        .then((data) => {
+          setHeadphones(data);
+        });
+    }
+    fetchdata();
   }, []);
   return (
     <>

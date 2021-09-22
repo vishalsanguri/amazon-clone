@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Amazonimg from "../Assests/icons/amazon-logo.png";
 import "./Login.css";
 import Spinner from "../spinner/Spinner";
+require("dotenv").config();
 
 export default function Login({ confirm, setConfirm, userInfo, setUserInfo }) {
   const history = useHistory();
@@ -21,11 +22,11 @@ export default function Login({ confirm, setConfirm, userInfo, setUserInfo }) {
   }
 
   async function verifyUser() {
-    if (details.email == "" || details.password === "") {
+    if (details.email === "" || details.password === "") {
       window.alert("Plz fill details");
       return null;
     } else setSpinner(true);
-    await fetch("http://localhost:5000/login", {
+    await fetch("https://amazon-backend-server.herokuapp.com/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
